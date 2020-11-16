@@ -10,7 +10,10 @@ export const listProducts = () => async (dispath) => {
     dispath({ type: PRODUCT_LIST });
     const { data } = await axios.get("/api/products");
 
-    dispath({ type: PRODUCT_LIST_SUCCESS, payload: data });
+    dispath({
+      type: PRODUCT_LIST_SUCCESS,
+      payload: data,
+    });
   } catch (error) {
     dispath({
       type: PRODUCT_LIST_FAIL,
