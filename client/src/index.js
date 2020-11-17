@@ -8,7 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store";
 
-const main = "#2196f3";
+const main = "#001f3f";
 
 const theme = createMuiTheme({
   palette: {
