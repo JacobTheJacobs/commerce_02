@@ -25,9 +25,10 @@ export default function UI(props) {
       <ResponsiveDrawer />
       <Grid container>
         <Grid item sm={4} md={3} lg={2}></Grid>
-        <Grid item sm={8} md={9} lg={10}>
+        <Grid item sm={7} md={8} lg={9}>
           <Paper className={classes.paper}>{props.children}</Paper>
         </Grid>
+        <Grid item md={1} lg={1}></Grid>
       </Grid>
     </div>
   );

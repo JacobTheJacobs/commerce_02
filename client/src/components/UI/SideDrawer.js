@@ -16,6 +16,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import Container from "@material-ui/core/Container";
 
 const drawerWidth = 240;
 
@@ -30,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   appBar: {
-    [theme.breakpoints.up("lg")]: {
+    [theme.breakpoints.up("sm")]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
     },
@@ -64,27 +67,48 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div>
-      <div className={classes.toolbar} />
+      <div
+        className={classes.toolbar}
+        style={{
+          backgroundColor: "#001f3f",
+
+          color: "white",
+        }}
+      >
+        <Typography variant="h6" noWrap style={{ paddingTop: "16px" }}>
+          Logo
+        </Typography>
+      </div>
       <Divider />
+      <br></br>
       <List>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
+          <div>
+            <ListItem button key={text}>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+
+              <ListItemText primary={text} />
+            </ListItem>
+            <Divider />
+          </div>
         ))}
       </List>
-      <Divider />
+      <br></br>
+
       <List>
         {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
+          <div>
+            <ListItem button key={text}>
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+
+              <ListItemText primary={text} />
+            </ListItem>
+            <Divider />
+          </div>
         ))}
       </List>
     </div>
@@ -139,6 +163,28 @@ function ResponsiveDrawer(props) {
             open
           >
             {drawer}
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <Typography variant="h6" noWrap>
+              השאר את המייל <br></br> !לקבלת מבצעים שווים
+            </Typography>
+            <form noValidate autoComplete="off">
+              <TextField id="outlined-basic" label="מייל" variant="outlined" />
+            </form>
+            <Container maxWidth="md">
+              <br></br>
+              <Button
+                variant="contained"
+                color="primary"
+                style={{ float: "right" }}
+              >
+                שלח
+              </Button>
+            </Container>
           </Drawer>
         </Hidden>
       </nav>
